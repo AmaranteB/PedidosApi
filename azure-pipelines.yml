@@ -149,7 +149,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_ALPHA)-hbdpfdc7dhgmbscv.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_ALPHA)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test Alpha: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test Alpha'
@@ -187,7 +187,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_BETA)-bbbgc9e8bsfafzf7.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_BETA)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test Beta: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test Beta'
@@ -225,7 +225,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_RC)-a3gqd4ctgpbmb7gf.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_RC)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test RC: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test RC'
@@ -266,7 +266,7 @@ stages:
           - script: |
               sleep 25
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_STABLE)-hdaebhgzbxdxajdw.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_STABLE)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test Stable: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK — produção no ar!" || exit 1
             displayName: '3. Smoke test Stable'
@@ -275,6 +275,6 @@ stages:
               echo "================================================"
               echo " Deploy em produção concluído!"
               echo " Versão : $(Build.SourceBranchName)"
-              echo " URL    : https://$(APP_NAME_STABLE)-hdaebhgzbxdxajdw.brazilsouth-01.azurewebsites.net"
+              echo " URL    : https://$(APP_NAME_STABLE)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net"
               echo "================================================"
             displayName: '4. Resumo do deploy'

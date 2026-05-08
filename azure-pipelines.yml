@@ -40,7 +40,7 @@ variables:
   APP_NAME_ALPHA:  'pedidos-api-curso-devops-alpha'
   APP_NAME_BETA:   'pedidos-api-curso-devops-beta'
   APP_NAME_RC:     'pedidos-api-curso-devops-rc'
-  APP_NAME_STABLE: 'pedidos-api-curso-devops'
+  APP_NAME_STABLE: 'pedidos-api-curso-devops2'
 
 stages:
 

@@ -37,9 +37,9 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dotnetVersion: '10.x'
-  APP_NAME_ALPHA:  'pedidos-api-curso-devops-alpha'
-  APP_NAME_BETA:   'pedidos-api-curso-devops-beta'
-  APP_NAME_RC:     'pedidos-api-curso-devops-rc'
+  APP_NAME_ALPHA:  'pedidos-api-curso-devops-alpha2'
+  APP_NAME_BETA:   'pedidos-api-curso-devops-beta2'
+  APP_NAME_RC:     'pedidos-api-curso-devops-rc2'
   APP_NAME_STABLE: 'pedidos-api-curso-devops2'
 
 stages:
@@ -149,7 +149,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_ALPHA)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_ALPHA)-dma7gvhcg6f8a5at.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test Alpha: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test Alpha'
@@ -187,7 +187,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_BETA)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_BETA)-a9gnfddbbcaqg7dr.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test Beta: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test Beta'
@@ -225,7 +225,7 @@ stages:
           - script: |
               sleep 20
               STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-                https://$(APP_NAME_RC)-a2arhzbve0hpenfr.brazilsouth-01.azurewebsites.net/pedidos)
+                https://$(APP_NAME_RC)-cpb7gud2dmawhqft.brazilsouth-01.azurewebsites.net/pedidos)
               echo "Smoke test RC: $STATUS"
               [ "$STATUS" = "200" ] && echo "OK" || exit 1
             displayName: '3. Smoke test RC'

@@ -1,5 +1,6 @@
 using Microsoft.FeatureManagement;
 using PedidosApi.Features;
+using System.Reflection;
 
 namespace PedidosApi.Endpoints;
 
@@ -7,9 +8,6 @@ public static class PedidoEndpoints
 {
     public static void MapPedidoEndpoints(this WebApplication app)
     {
-        // -------------------------------------------------------
-        // Endpoint existente — não mudou nada com o TBD
-        // -------------------------------------------------------
         app.MapGet("/pedidos", () =>
             Results.Ok(new[]
             {
@@ -55,6 +53,27 @@ public static class PedidoEndpoints
             .WithName("StatusFlags")
             .WithTags("Feature Flags")
             .WithSummary("Retorna o status atual de todas as feature flags");
+
+        app.MapGet("/info", (IWebHostEnvironment env) =>
+        {
+            var versaoCompleta = typeof(Program).Assembly
+                .GetCustomAttribute<System.Reflection.AssemblyInformationalVersionAttribute>()
+                ?.InformationalVersion ?? "0.0.0";
+
+            // Remove o hash do commit (+abc123...)
+            var versao = versaoCompleta.Split('+')[0];
+
+            return Results.Ok(new
+            {
+                Ambiente    = env.EnvironmentName,
+                Versao      = versao,
+                Application = "PedidosApi",
+                Timestamp   = DateTime.UtcNow
+            });
+        })
+        .WithName("Info")
+        .WithTags("Sistema");
+       
     }
 }
 

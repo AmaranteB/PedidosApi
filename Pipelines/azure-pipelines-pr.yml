@@ -3,6 +3,7 @@
 #  PedidosApi — Validação de Pull Request
 #  Roda automaticamente quando um PR é aberto para a main
 #  O merge só é liberado se build e testes passarem
+# Teste
 # ============================================================
 
 trigger: none   # nunca aciona por push direto

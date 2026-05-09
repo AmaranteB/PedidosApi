@@ -15,8 +15,7 @@
 #       Valor: [colar o token do GitHub]
 #       Keep this value secret: ON
 #
-#    3. Substituir "MaqBr" pelo seu usuário real do GitHub
-#       na variável githubUser abaixo
+#    3. Substituir seu githubUser pelo seu usuário real do GitHub
 # ============================================================
 
 trigger:
